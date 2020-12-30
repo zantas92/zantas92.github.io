@@ -21,6 +21,31 @@
 
     
     <link href="style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      function getContentFromSteamID(){
+        return function() {
+    var data = {}
+    data.id = $('#IDForm input[SteamID=ID]').val();
+    $.ajax({
+      method: "GET",
+      url: 'http://localhost:5000/SteamId/Content',
+      data: JSON.stringify(data),
+      headers: {"Accept": "application/json"}
+    })
+    .done(function(result) {
+    console.log(result);
+    });
+    }
+    $(document).ready(function () {
+    console.log("TEST");
+    $('#SteamButton').click(getContentFromSteamID());
+    });
+    }
+    </script>   
   </head>
 
   <body>
@@ -74,30 +99,5 @@
   </div>
 
 </main>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script type="text/javascript">
-  function getContentFromSteamID(){
-    return function() {
-var data = {}
-data.id = $('#IDForm input[SteamID=ID]').val();
-$.ajax({
-  method: "GET",
-  url: 'http://localhost:5000/SteamId/Content',
-  data: JSON.stringify(data),
-  headers: {"Accept": "application/json"}
-})
-.done(function(result) {
-console.log(result);
-});
-}
-$(document).ready(function () {
-console.log("TEST");
-$('#SteamButton').click(getContentFromSteamID());
-});
-}
-</script>   
 </body>
 </html>
