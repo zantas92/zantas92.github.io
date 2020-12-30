@@ -75,10 +75,11 @@
 
 </main>
 
-    <script>
-       return function() {
+  <script>
+      function getContentFromSteamID(SteamID){
+        return function() {
     var data = {}
-    data.id = $('#IDForm input[SteamID=id]').val();
+    data.id = $('#IDForm input[SteamID=ID]').val();
     $.ajax({
       method: "GET",
       url: 'http://localhost:5000/SteamId/Content',
@@ -89,9 +90,10 @@
     Console.log(result);
     });
   }
-    </script>
-    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-      
+  $(document).ready(function () {
+  $('#SteamID').click(getContentFromSteamID());
+});
+}
+</script>     
   </body>
 </html>
