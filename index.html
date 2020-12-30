@@ -66,7 +66,7 @@
     <p class="lead">Text text text</p>
     <h1>Test form</h1>
 
-    <form onclick="return getContentFromSteamID">
+    <form onsubmit="return getContentFromSteamID">
     <label for="IDform">Test input: </label>
     <input type="text" id="SteamID" name="SteamID"><br><br>
     <input type="submit" value="Submit">
@@ -76,7 +76,7 @@
 </main>
 
   <script>
-      function getContentFromSteamID(SteamID){
+      function getContentFromSteamID(){
         return function() {
     var data = {}
     data.id = $('#IDForm input[SteamID=ID]').val();
