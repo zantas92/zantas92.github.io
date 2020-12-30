@@ -27,7 +27,6 @@
   </head>
 
   <body>
-    
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -70,8 +69,8 @@
     <p class="lead">Text text text</p>
     <h1>Test form</h1>
 
-    <form action="/action_page.php">
-    <label for="fname">Test input: </label>
+    <form action="/index.html">
+    <label for="IDform">Test input: </label>
     <input type="text" id="SteamID" name="SteamID"><br><br>
     <input type="submit" value="Submit">
   </form>
@@ -79,7 +78,21 @@
 
 </main>
 
-
+    <script>
+       return function() {
+    var data = {}
+    data.id = $('#IDForm input[SteamID=id]').val();
+    $.ajax({
+      method: "GET",
+      url: 'http://localhost:5000/SteamId/Content',
+      data: JSON.stringify(data),
+      headers: {"Accept": "application/json"}
+    })
+    .done(function(result) {
+    Console.log(result);
+    });
+  }
+    </script>
     <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
       
