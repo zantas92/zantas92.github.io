@@ -24,6 +24,59 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
+
+  
+      function getNextContent(platform, gameIndex, startIndex) {
+          if (platform === 'youtube') {
+          var youtube = JSON.parse(sessionStorage.youtube);
+          console.log("Youtube");
+          console.log(youtube);
+          for(var i = startIndex; i < startIndex+3; i++) {
+            var game = youtube[gameIndex];
+            var key = Object.keys(game);
+            var gameName = key[0];
+            var gameData = game[gameName];
+            console.log(gameData[i]);
+          }
+        }
+        if(platform === 'twitch') {
+          var twitch = JSON.parse(sessionStorage.twitch);
+          console.log("Twitch");
+          console.log(twitch);
+          for(var i = startIndex; i < startIndex+3; i++) {
+            var game = twitch[gameIndex];
+            var key = Object.keys(game);
+            var gameName = key[0];
+            var gameData = game[gameName];
+            console.log(gameData[i]);
+          }
+        }
+      }
+      function getPreviousContent(platform, gameIndex, startIndex) {
+         if (platform === 'youtube') {
+          var youtube = JSON.parse(sessionStorage.youtube);
+          for(var i = startIndex; i > startIndex-3; i--) {
+            var game = youtube[gameIndex];
+            var key = Object.keys(game);
+            var gameName = key[0];
+            var gameData = game[gameName];
+            console.log(gameData[i]);
+          }
+        }
+        if(platform === 'twitch') {
+          var twitch = JSON.parse(sessionStorage.twitch);
+          for(var i = startIndex; i > startIndex-3; i--) {
+            var game = twitch[gameIndex];
+            var key = Object.keys(game);
+            var gameName = key[0];
+            var gameData = game[gameName];
+            console.log(gameData[i]);
+          }
+        }
+      }
+
+
+
       function getContentFromSteamID(){
         return function() {
          
@@ -32,13 +85,17 @@
       url: 'http://localhost:5000/content/steam/' + document.getElementById('SteamID').value,
       headers: {"Accept": "application/json"}
     })
-    .done(function(result) {
-    console.log(result);
+    .done(function(data) {
+    var youtube = data.Youtube;
+    sessionStorage.setItem('youtube', JSON.stringify(youtube));
+    getNextContent('youtube', 0,0);
+    var twitch = data.Twitch;
+    sessionStorage.setItem('twitch', JSON.stringify(twitch));
+   // getNextContent('twitch',1,0);
     });
-    }
-    }
+  }
+}
     $(document).ready(function () {
-    console.log("TEST");
     $('#SteamButton').click(getContentFromSteamID());
     });
     </script>   
@@ -93,7 +150,6 @@
     <button type="button" id="SteamButton">Skicka</button>
   </form>
   </div>
-
 </main>
 </body>
 </html>
