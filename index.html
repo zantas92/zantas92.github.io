@@ -26,6 +26,21 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
+    	function postContentByGame(slideId) {
+            for(var i = 0; i < 8; i++) {
+            var youtube = JSON.parse(sessionStorage.getItem('youtube'));	
+            var game = youtube[slideId];
+            var key = Object.keys(game);
+            var gameName = key[0];
+            var gameData = game[gameName];
+            console.log(gameData[i].videoId);
+            $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
+          }
+    	}
+
+
+
+
       function getContentFromSteamID(){
         return function() {
          
@@ -36,15 +51,11 @@
     })
     .done(function(data) {
     var youtube = data.Youtube;
-     for(var i = 0; i < 8; i++) {
-            var game = youtube[0];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            console.log(gameData[i].videoId);
-            $('#box'+i).text((gameData[i].videoId));
-          }
-    	var twitch = data.Twitch;
+    sessionStorage.setItem('youtube', JSON.stringify(youtube));
+    for(var i = 0; i<1; i++) {
+    	postContentByGame(i);
+    }
+    var twitch = data.Twitch;
 
     });
   }
@@ -115,13 +126,13 @@
           <div class="carousel-inner">
             <div class="item active">
               <div class="row">
-                <div class="col-sm-3" id="box0"><a class="thumbnail"> 1 </a>
+                <div class="col-sm-3"><iframe id="box0_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3" id="box1"><a class="thumbnail"> 2 </a>
+                <div class="col-sm-3"><iframe id="box1_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3" id="box2"><a class="thumbnail"> 3 </a>
+                <div class="col-sm-3"><iframe id="box2_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3" id="box3"><a class="thumbnail"> 4 </a>
+                <div class="col-sm-3"><iframe id="box3_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
               <!--/row-->
@@ -129,13 +140,13 @@
             <!--/item-->
             <div class="item">
               <div class="row">
-                <div class="col-sm-3" id="box4"><a class="thumbnail"> 5 </a>
+                <div class="col-sm-3"><iframe id="box4_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3" id="box5"><a class="thumbnail"> 6 </a>
+                <div class="col-sm-3"><iframe id="box5_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3" id="box6"><a class="thumbnail"> 7 </a>
+                <div class="col-sm-3"><iframe id="box6_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3" id="box7"><a class="thumbnail"> 8 </a>
+                <div class="col-sm-3"><iframe id="box7_slide0" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
               <!--/row-->
