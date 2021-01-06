@@ -26,59 +26,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
-
-  
-      function getNextContent(platform, gameIndex, startIndex) {
-          if (platform === 'youtube') {
-          var youtube = JSON.parse(sessionStorage.youtube);
-          console.log("Youtube");
-          console.log(youtube);
-          for(var i = startIndex; i < startIndex+3; i++) {
-            var game = youtube[gameIndex];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            console.log(gameData[i]);
-          }
-        }
-        if(platform === 'twitch') {
-          var twitch = JSON.parse(sessionStorage.twitch);
-          console.log("Twitch");
-          console.log(twitch);
-          for(var i = startIndex; i < startIndex+3; i++) {
-            var game = twitch[gameIndex];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            console.log(gameData[i]);
-          }
-        }
-      }
-      function getPreviousContent(platform, gameIndex, startIndex) {
-         if (platform === 'youtube') {
-          var youtube = JSON.parse(sessionStorage.youtube);
-          for(var i = startIndex; i > startIndex-3; i--) {
-            var game = youtube[gameIndex];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            console.log(gameData[i]);
-          }
-        }
-        if(platform === 'twitch') {
-          var twitch = JSON.parse(sessionStorage.twitch);
-          for(var i = startIndex; i > startIndex-3; i--) {
-            var game = twitch[gameIndex];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            console.log(gameData[i]);
-          }
-        }
-      }
-
-
-
       function getContentFromSteamID(){
         return function() {
          
@@ -89,21 +36,22 @@
     })
     .done(function(data) {
     var youtube = data.Youtube;
-    sessionStorage.setItem('youtube', JSON.stringify(youtube));
-    getNextContent('youtube', 0,0);
-    var twitch = data.Twitch;
-    sessionStorage.setItem('twitch', JSON.stringify(twitch));
-   // getNextContent('twitch',1,0);
+     for(var i = 0; i < 8; i++) {
+            var game = youtube[0];
+            var key = Object.keys(game);
+            var gameName = key[0];
+            var gameData = game[gameName];
+            console.log(gameData[i].videoId);
+            $('#box'+i).text((gameData[i].videoId));
+          }
+    	var twitch = data.Twitch;
+
     });
   }
 }
     $(document).ready(function () {
     $('#SteamButton').click(getContentFromSteamID());
     });
-
-  $('.carousel').carousel({
-    interval: false,
-});
     </script>
   </head>
 
@@ -167,13 +115,13 @@
           <div class="carousel-inner">
             <div class="item active">
               <div class="row">
-                <div class="col-sm-3"><a class="thumbnail"> 1 </a>
+                <div class="col-sm-3" id="box0"><a class="thumbnail"> 1 </a>
                 </div>
-                <div class="col-sm-3"><a class="thumbnail"> 2 </a>
+                <div class="col-sm-3" id="box1"><a class="thumbnail"> 2 </a>
                 </div>
-                <div class="col-sm-3"><a class="thumbnail"> 3 </a>
+                <div class="col-sm-3" id="box2"><a class="thumbnail"> 3 </a>
                 </div>
-                <div class="col-sm-3"><a class="thumbnail"> 4 </a>
+                <div class="col-sm-3" id="box3"><a class="thumbnail"> 4 </a>
                 </div>
               </div>
               <!--/row-->
@@ -181,13 +129,13 @@
             <!--/item-->
             <div class="item">
               <div class="row">
-                <div class="col-sm-3"><a class="thumbnail"> 5 </a>
+                <div class="col-sm-3" id="box4"><a class="thumbnail"> 5 </a>
                 </div>
-                <div class="col-sm-3"><a class="thumbnail"> 6 </a>
+                <div class="col-sm-3" id="box5"><a class="thumbnail"> 6 </a>
                 </div>
-                <div class="col-sm-3"><a class="thumbnail"> 7 </a>
+                <div class="col-sm-3" id="box6"><a class="thumbnail"> 7 </a>
                 </div>
-                <div class="col-sm-3"><a class="thumbnail"> 8 </a>
+                <div class="col-sm-3" id="box7"><a class="thumbnail"> 8 </a>
                 </div>
               </div>
               <!--/row-->
