@@ -11,3 +11,17 @@
     font-size: 3.5rem;
     }
 }
+
+.carousel-control {
+    padding-top: 10%;
+    width: 5%;
+  }
+  
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+  }
