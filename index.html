@@ -38,7 +38,26 @@
           }
     	}
 
+    //Typ samma som den under, men har inte testat ännu
+      function getContentByGameName(){
+        return function() {
+         
+    $.ajax({
+      method: "GET",
+      url: 'http://localhost:5000/Content/Game/' + document.getElementById('Placeholder for game search').value,
+      headers: {"Accept": "application/json"}
+    })
+    .done(function(data) {
+    var youtube = data.Youtube;
+    sessionStorage.setItem('youtube', JSON.stringify(youtube));
+    for(var i = 0; i<1; i++) {
+    	postContentByGame(i);
+    }
+    var twitch = data.Twitch;
 
+    });
+  }
+}
 
 
       function getContentFromSteamID(){
@@ -46,7 +65,7 @@
          
     $.ajax({
       method: "GET",
-      url: 'http://localhost:5000/content/steam/' + document.getElementById('SteamID').value,
+      url: 'http://localhost:5000/Content/Steam/' + document.getElementById('SteamID').value,
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
