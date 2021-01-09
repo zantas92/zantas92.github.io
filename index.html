@@ -32,8 +32,7 @@
             var key = Object.keys(game);
             var gameName = key[0];
             var gameData = game[gameName];
-            var img = new Image();
-            img.src = 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg';
+            $('#gamepic'+i).attr('src', 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg'); 
             for(var i = 0; i < 8; i++) {
             $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
           }
@@ -143,10 +142,10 @@
 
   <div class="container" id="container0">
     <div class="col-md-12">
-      <h1 id="gamepic0"></h1>
+        <h1><img id="gamepic0" src=""></h1>
   
       <div class="well">
-        <div id="slideCarousel" class="carousel slide" data-interval="false">
+        <div id="slideCarousel0" class="carousel slide" data-interval="false">
   
           <div class="carousel-inner">
             <div class="item active">
@@ -179,9 +178,9 @@
             <!--/item-->
           </div>
           <!--/carousel-inner-->
-          <a class="left carousel-control" href="#slideCarousel" data-slide="prev">‹</a>
+          <a class="left carousel-control" href="#slideCarousel0" data-slide="prev">‹</a>
   
-          <a class="right carousel-control" href="#slideCarousel" data-slide="next">›</a>
+          <a class="right carousel-control" href="#slideCarousel0" data-slide="next">›</a>
         </div>
         <!--/myCarousel-->
       </div>
@@ -191,10 +190,10 @@
 
   <div class="container" id="container1">
     <div class="col-md-12">
-      <h1 id="gamepic1"></h1> <!--- NAMN PÅ HEADERN SOM INNEHÅLLER BILDOBJEKTET ---->
+         <h1><img id="gamepic1" src=""></h1>
       </script>
       <div class="well">
-        <div id="slideCarousel" class="carousel slide" data-interval="false">
+        <div id="slideCarousel1" class="carousel slide" data-interval="false">
   
           <div class="carousel-inner">
             <div class="item active">
@@ -227,9 +226,9 @@
             <!--/item-->
           </div>
           <!--/carousel-inner-->
-          <a class="left carousel-control" href="#slideCarousel" data-slide="prev">‹</a>
+          <a class="left carousel-control" href="#slideCarousel1" data-slide="prev">‹</a>
   
-          <a class="right carousel-control" href="#slideCarousel" data-slide="next">›</a>
+          <a class="right carousel-control" href="#slideCarousel1" data-slide="next">›</a>
         </div>
         <!--/myCarousel-->
       </div>
@@ -239,10 +238,10 @@
 
   <div class="container" id="container2">
     <div class="col-md-12">
-      <h1 id="gamepic2"></h1>
+        <h1><img id="gamepic2" src=""></h1>
   
       <div class="well">
-        <div id="slideCarousel" class="carousel slide" data-interval="false">
+        <div id="slideCarousel2" class="carousel slide" data-interval="false">
   
           <div class="carousel-inner">
             <div class="item active">
@@ -275,9 +274,9 @@
             <!--/item-->
           </div>
           <!--/carousel-inner-->
-          <a class="left carousel-control" href="#slideCarousel" data-slide="prev">‹</a>
+          <a class="left carousel-control" href="#slideCarousel2" data-slide="prev">‹</a>
   
-          <a class="right carousel-control" href="#slideCarousel" data-slide="next">›</a>
+          <a class="right carousel-control" href="#slideCarousel2" data-slide="next">›</a>
         </div>
         <!--/myCarousel-->
       </div>
