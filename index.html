@@ -27,7 +27,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
     	function postContentByGame(slideId) {
-            document.getElementById('gamepic'+slideId).appendChild(img);
             for(var i = 0; i < 8; i++) {
             var youtube = JSON.parse(sessionStorage.getItem('youtube'));	
             var game = youtube[slideId];
