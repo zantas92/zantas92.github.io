@@ -33,24 +33,28 @@
             var key = Object.keys(game);
             var gameName = key[0];
             var gameData = game[gameName];
+            var img = new Image();
+            img.src = 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg';
+            document.getElementById('gamepic'+i).appendChild(img);
+            console.log(gameData[i]);
             console.log(gameData[i].videoId);
             $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
           }
     	}
 
-    //Typ samma som den under, men har inte testat ännu
-      function getContentByGameName(){
+    function getContentByGameName(){
         return function() {
          
     $.ajax({
       method: "GET",
-      url: 'http://localhost:5000/Content/Game/' + document.getElementById('Placeholder for game search').value,
+      url: 'http://localhost:5000/content/game/' + document.getElementById('Placeholder for game search').value,
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
     var youtube = data.Youtube;
     sessionStorage.setItem('youtube', JSON.stringify(youtube));
     for(var i = 0; i<1; i++) {
+      document.getElementById("container"+i).style.visibility = "show";
     	postContentByGame(i);
     }
     var twitch = data.Twitch;
@@ -65,13 +69,14 @@
          
     $.ajax({
       method: "GET",
-      url: 'http://localhost:5000/Content/Steam/' + document.getElementById('SteamID').value,
+      url: 'http://localhost:5000/content/steam/' + document.getElementById('SteamID').value,
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
     var youtube = data.Youtube;
     sessionStorage.setItem('youtube', JSON.stringify(youtube));
     for(var i = 0; i<1; i++) {
+      document.getElementById("container"+i).style.visibility = "show";
     	postContentByGame(i);
     }
     var twitch = data.Twitch;
@@ -79,8 +84,12 @@
     });
   }
 }
+
     $(document).ready(function () {
     $('#SteamButton').click(getContentFromSteamID());
+    document.getElementById("container0").style.visibility = "hidden";
+    document.getElementById("container1").style.visibility = "hidden";
+    document.getElementById("container2").style.visibility = "hidden";
     });
     </script>
   </head>
@@ -131,13 +140,13 @@
   <form name ="Inputform" id="Inputform"> 
     <label for="IDform">Test input: </label>
     <input type="text" id="SteamID"><br><br>
-    <a class="btn btn-primary" href="#" id="SteamButton" role="button">Skicka</a> 
+    <a class="btn btn-primary" id="SteamButton" role="button">Skicka</a>
   </form>
   </div>
 
-  <div class="container">
+  <div class="container" id="container0">
     <div class="col-md-12">
-      <h1>Slider test</h1>
+      <h1 id="gamepic0"></h1>
   
       <div class="well">
         <div id="slideCarousel" class="carousel slide" data-interval="false">
@@ -182,6 +191,101 @@
       <!--/well-->
     </div>
   </div>
+
+  <div class="container" id="container1">
+    <div class="col-md-12">
+      <h1 id="gamepic1"></h1> <!--- NAMN PÅ HEADERN SOM INNEHÅLLER BILDOBJEKTET ---->
+      </script>
+      <div class="well">
+        <div id="slideCarousel" class="carousel slide" data-interval="false">
+  
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="row">
+                <div class="col-sm-3"><iframe id="box0_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box1_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box2_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box3_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <!--/row-->
+            </div>
+            <!--/item-->
+            <div class="item">
+              <div class="row">
+                <div class="col-sm-3"><iframe id="box4_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box5_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box6_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box7_slide1" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <!--/row-->
+            </div>
+            <!--/item-->
+          </div>
+          <!--/carousel-inner-->
+          <a class="left carousel-control" href="#slideCarousel" data-slide="prev">‹</a>
+  
+          <a class="right carousel-control" href="#slideCarousel" data-slide="next">›</a>
+        </div>
+        <!--/myCarousel-->
+      </div>
+      <!--/well-->
+    </div>
+  </div>
+
+  <div class="container" id="container2">
+    <div class="col-md-12">
+      <h1 id="gamepic2"></h1>
+  
+      <div class="well">
+        <div id="slideCarousel" class="carousel slide" data-interval="false">
+  
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="row">
+                <div class="col-sm-3"><iframe id="box0_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box1_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box2_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box3_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <!--/row-->
+            </div>
+            <!--/item-->
+            <div class="item">
+              <div class="row">
+                <div class="col-sm-3"><iframe id="box4_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box5_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box6_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3"><iframe id="box7_slide2" width="100" height="100" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <!--/row-->
+            </div>
+            <!--/item-->
+          </div>
+          <!--/carousel-inner-->
+          <a class="left carousel-control" href="#slideCarousel" data-slide="prev">‹</a>
+  
+          <a class="right carousel-control" href="#slideCarousel" data-slide="next">›</a>
+        </div>
+        <!--/myCarousel-->
+      </div>
+      <!--/well-->
+    </div>
 </main>
 </body>
 </html>
