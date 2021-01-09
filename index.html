@@ -32,7 +32,7 @@
             var key = Object.keys(game);
             var gameName = key[0];
             var gameData = game[gameName];
-            $('#gamepic'+i).attr('src', 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg'); 
+            $('#gamepic'+slideId).attr('src', 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg'); 
             for(var i = 0; i < 8; i++) {
             $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
           }
