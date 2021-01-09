@@ -27,14 +27,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
     	function postContentByGame(slideId) {
-            for(var i = 0; i < 8; i++) {
-            var youtube = JSON.parse(sessionStorage.getItem('youtube'));	
+            var youtube = JSON.parse(sessionStorage.getItem('youtube')); 
             var game = youtube[slideId];
             var key = Object.keys(game);
             var gameName = key[0];
             var gameData = game[gameName];
             var img = new Image();
             img.src = 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg';
+            for(var i = 0; i < 8; i++) {
             $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
           }
     	}
