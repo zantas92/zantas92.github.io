@@ -27,6 +27,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
     	function postContentByGame(slideId) {
+            document.getElementById('gamepic'+slideId).appendChild(img);
             for(var i = 0; i < 8; i++) {
             var youtube = JSON.parse(sessionStorage.getItem('youtube'));	
             var game = youtube[slideId];
@@ -35,7 +36,6 @@
             var gameData = game[gameName];
             var img = new Image();
             img.src = 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg';
-            document.getElementById('gamepic'+i).appendChild(img);
             console.log(gameData[i]);
             console.log(gameData[i].videoId);
             $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
