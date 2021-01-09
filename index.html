@@ -35,8 +35,6 @@
             var gameData = game[gameName];
             var img = new Image();
             img.src = 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg';
-            console.log(gameData[i]);
-            console.log(gameData[i].videoId);
             $('#box'+i+'_slide'+slideId).attr('src', 'https://www.youtube.com/embed/'+gameData[i].videoId);
           }
     	}
