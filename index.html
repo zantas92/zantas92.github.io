@@ -72,7 +72,7 @@
     .done(function(data) {
     var youtube = data.Youtube;
     sessionStorage.setItem('youtube', JSON.stringify(youtube));
-    for(var i = 0; i<1; i++) {
+    for(var i = 0; i<youtube.length; i++) {
       document.getElementById("container"+i).style.visibility = "visible";
     	postContentByGame(i);
     }
