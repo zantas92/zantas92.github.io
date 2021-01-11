@@ -60,6 +60,8 @@ div {
 div.well {
 	width: 160%;
 	margin-bottom: 5%;
+	background-image: linear-gradient(to bottom, #ff0000 0, #f5f5f5 100%);
+
 }
 
 .container {
@@ -68,7 +70,7 @@ div.well {
 
 div.twitchdiv{
 	width:160%;
-	height:auto;
+	height: auto;
 }
 
 iframe.twitchIF {
