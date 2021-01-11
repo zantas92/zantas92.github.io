@@ -55,7 +55,7 @@
               }
             }
             console.log(rowIndex);
-             $('#slideCarousel'+slideId+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="256" height="144" src="https://www.youtube.com/embed/'+gameData[i].videoId+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');    
+             $('#slideCarousel'+slideId+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="426" height="240" src="https://www.youtube.com/embed/'+gameData[i].videoId+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');    
           }
 
 
@@ -158,6 +158,96 @@ function hideSlideContainers() {
     </div>
   </div>
 </nav>
+
+<main class="containerMAIN">
+
+  <div class="starter-template text-center py-7 px-3">
+    <h1>GameWatch</h1>
+    <p class="lead">Skapat av Grupp 9</p>
+    <h1>Enter Steam ID</h1>
+
+  <form name ="Inputform" id="Inputform"> 
+    <label for="IDform">Enter Steam ID: </label>
+    <input type="text" id="SteamID"><br><br>
+    <a class="btn btn-primary" id="SteamButton" role="button">Skicka</a>
+  </form>
+  </div>
+
+  <div class="container" id="container0">
+    <div class="col-md-12">
+        <h1>
+          <div class="twitchdiv">
+          <img id="gamepic0" src="">
+          <iframe id="stream0_game0" class="twitchIF" autoplay ="false" src="" height="240"width="426"allowfullscreen="<allowfullscreen>">
+          </iframe>
+          <iframe id="stream1_game0" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>"></iframe>
+          <iframe id="stream2_game0" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>"></iframe>
+          <img id="twitchlogo" src="https://assets.help.twitch.tv/Glitch_Purple_RGB.png" width="200" height="200">
+          </div>
+        </h1>
+      <div class="well" width="960">
+        <div id="slideCarousel0" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+          </div>
+          <a class="left carousel-control" href="#slideCarousel0" data-slide="prev">‹</a>
+          <a class="right carousel-control" href="#slideCarousel0" data-slide="next">›</a>
+        </div>
+        <!--/myCarousel-->
+      </div>
+      <!--/well-->
+    </div>
+  </div>
+
+  <div class="container" id="container1">
+    <div class="col-md-12">
+         <h1>
+          <div class="twitchdiv">
+          <img id="gamepic1" src="">
+          <iframe id="stream0_game1" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>">
+          </iframe>
+          <iframe id="stream1_game1" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>"></iframe>
+          <iframe id="stream2_game1" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>"></iframe>
+          <img id="twitchlogo" src="https://assets.help.twitch.tv/Glitch_Purple_RGB.png" width="200" height="200">
+          </div>
+        </h1>
+      </script>
+      <div class="well">
+        <div id="slideCarousel1" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+          </div>
+          <a class="left carousel-control" href="#slideCarousel1" data-slide="prev">‹</a>
+          <a class="right carousel-control" href="#slideCarousel1" data-slide="next">›</a>
+        </div>
+        <!--/myCarousel-->
+      </div>
+      <!--/well-->
+    </div>
+  </div>
+
+  <div class="container" id="container2">
+    <div class="col-md-12">
+        <h1>
+          <div class="twitchdiv">
+          <img id="gamepic2" src="">
+          <iframe id="stream0_game2" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>">
+          </iframe>
+          <iframe id="stream1_game2" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>"></iframe>
+          <iframe id="stream2_game2" class="twitchIF" autoplay ="false" src=""height="240"width="426"allowfullscreen="<allowfullscreen>"></iframe>
+          <img id="twitchlogo" src="https://assets.help.twitch.tv/Glitch_Purple_RGB.png" width="200" height="200">
+          </div>
+        </h1>
+      <div class="well">
+        <div id="slideCarousel2" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+          </div>
+          <a class="left carousel-control" href="#slideCarousel2" data-slide="prev">‹</a>
+          <a class="right carousel-control" href="#slideCarousel2" data-slide="next">›</a>
+        </div>
+        <!--/myCarousel-->
+      </div>
+      <!--/well-->
+    </div>
+</main>
 
 <style>
   .footer {
