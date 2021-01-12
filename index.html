@@ -6,10 +6,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Grupp 9 Template</title>
+    <meta name="theme-color" content="#7952b3">
+
+    <title>GameWatch</title>
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
     <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -17,203 +20,56 @@
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
-
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="index.js"></script>
     <script type="text/javascript">
-      function postContentByGame(slideId) {
-            var youtube = JSON.parse(sessionStorage.getItem('youtube')); 
-            var twitch = JSON.parse(sessionStorage.getItem('twitch'));
-            var streamer = twitch[slideId];
-            var game = youtube[slideId];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            var keyTwitch = Object.keys(streamer);
-            var gameNameTwitch = key[0];
-            var streamerData = streamer[gameNameTwitch];
-            $('#gamepic'+slideId).attr('src', 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg');
-
-            //Add content to slide
-
-            //Youtube
-            var rowIndex = -1;
-            $('#slideCarousel'+slideId+' .carousel-inner').empty();
-            for(var i = 0; i < gameData.length; i++) {
-            if(i % 4 === 0) {
-              rowIndex++;
-              if(i === 0) {
-                $('#slideCarousel'+slideId+' .carousel-inner').append('<div class="item active" id=row'+rowIndex+'><div class="row"></div></div>');
-              }
-              else {
-                $('#slideCarousel'+slideId+' .carousel-inner').append('<div class="item" id=row'+rowIndex+'><div class="row"></div></div>');
-              }
-            }
-            console.log(rowIndex);
-             $('#slideCarousel'+slideId+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="256" height="144" src="https://www.youtube.com/embed/'+gameData[i].videoId+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');    
-          }
-
-
-          //Twitch
-          for(var i = 0; i < streamerData.length; i++){
-            $('#stream'+i+'_game'+slideId).attr('src', 'https://player.twitch.tv/?channel='+streamerData[i].channel_name+'&parent=sveningvarstechsupport.com');
-          }
-
-
-      }
-
-    function getContentByGameName(){
-        return function() {
-         
-    $.ajax({
-      method: "GET",
-      url: 'http://localhost:5000/content/game/' + document.getElementById('Placeholder for game search').value,
-      headers: {"Accept": "application/json"}
-    })
-    .done(function(data) {
-    var youtube = data.Youtube;
-    sessionStorage.setItem('youtube', JSON.stringify(youtube));
-    var twitch = data.Twitch;
-    sessionStorage.setItem('twitch', JSON.stringify(twitch));
-
-    hideSlideContainers();
-    for(var i = 0; i<1; i++) {
-      document.getElementById("container"+i).style.visibility = "visible";
-      postContentByGame(i);
-    }
-
-    });
-  }
-}
-
-function hideSlideContainers() {
-    document.getElementById("container0").style.visibility = "hidden";
-    document.getElementById("container1").style.visibility = "hidden";
-    document.getElementById("container2").style.visibility = "hidden";
-}
-
-
-      function getContentFromSteamID(){
-        return function() {
-         
-    $.ajax({
-      method: "GET",
-      url: 'http://localhost:5000/content/steam/' + document.getElementById('SteamID').value,
-      headers: {"Accept": "application/json"}
-    })
-    .done(function(data) {
-    var youtube = data.Youtube;
-    sessionStorage.setItem('youtube', JSON.stringify(youtube));
-     var twitch = data.Twitch;
-    sessionStorage.setItem('twitch', JSON.stringify(twitch));
-
-    hideSlideContainers();
-    for(var i = 0; i<youtube.length; i++) {
-      document.getElementById("container"+i).style.visibility = "visible";
-      postContentByGame(i);
-    }
-   
-
-    });
-  }
-}
-
-    $(document).ready(function () {
-    $('#SteamButton').click(getContentFromSteamID());
-    hideSlideContainers();
-    });
+      $(document).ready(function () {
+        $('#steamButton').click(getContentFromSteamID());
+      });
     </script>
   </head>
 
-<body>
-<main class="containerMAIN">
 
+
+
+<body>
   <div class="starter-template text-center py-7 px-3">
     <img src="gamewatch.jpg" alt="Gamewatch Logo" style="width:700px;height:400px;">
-    <p class="lead">Made by Group 9</p>
+    
     <h1>Enter Steam ID</h1>
 
   <form name ="Inputform" id="Inputform"> 
     <label for="IDform">Enter Steam ID: </label>
     <input type="text" id="SteamID"><br><br>
-    <a href="user_content.html" id="SteamButton">
-      <img alt="Steam Button" src="steambutton.png"
-      width=130 height="60">
-   </a>
+    <a href="content.html" class="button" id="steamButton" role="button"><img alt="Steam Button" src="steambutton.png"
+      width=130 height="60"></a>
     <a href="generic_content.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Continue without Steam ID</a>
   </form>
   </div>
-
-  <div class="container" id="container0">
-    <div class="col-md-12">
-        <h1>
-          <img id="gamepic0" src="">
-          <iframe id="stream0_game0" src="" height="144"width="256"allowfullscreen="<allowfullscreen>">
-          </iframe>
-          <iframe id="stream1_game0" src=""height="144"width="256"allowfullscreen="<allowfullscreen>"></iframe>
-          <iframe id="stream2_game0" src=""height="144"width="256"allowfullscreen="<allowfullscreen>"></iframe>
-        </h1>
-      <div class="well" width="960">
-        <div id="slideCarousel0" class="carousel slide" data-interval="false">
-          <div class="carousel-inner">
-          </div>
-          <a class="left carousel-control" href="#slideCarousel0" data-slide="prev">‹</a>
-          <a class="right carousel-control" href="#slideCarousel0" data-slide="next">›</a>
-        </div>
-        <!--/myCarousel-->
-      </div>
-      <!--/well-->
-    </div>
+  <div>
+    <div class="instructions">
+    <p>To find your Steam Id, visit <a href="https://steamcommunity.com/search/users/">steamcommunity.com/search/users/</a></p>
+    <img class="instruction_image" src="Pic1.png" alt="Step 1" width="700" height="auto"> 
+    <br>
+    <br>
+    <p>In the search bar, type in your Steam username or Steam alias, then select your profile from the list</p>
+    <img class="instruction_image" src="Pic2.png" alt="Step 1" width="700" height="auto"> 
+    <br>
+    <br>
+    <p>With your profile loaded successfully, look at your web browser's address field.</p> 
+    <p>The last part of the URL (/profiles/YourSteamId) is your Steam Id!</p>
+    <img class="instruction_image" src="Pic3.png" alt="Step 1" width="700" height="auto">
   </div>
-
-  <div class="container" id="container1">
-    <div class="col-md-12">
-         <h1>
-          <img id="gamepic1" src="">
-          <iframe id="stream0_game1" src=""height="144"width="256"allowfullscreen="<allowfullscreen>">
-          </iframe>
-          <iframe id="stream1_game1" src=""height="144"width="256"allowfullscreen="<allowfullscreen>"></iframe>
-          <iframe id="stream2_game1" src=""height="144"width="256"allowfullscreen="<allowfullscreen>"></iframe>
-        </h1>
-      </script>
-      <div class="well">
-        <div id="slideCarousel1" class="carousel slide" data-interval="false">
-          <div class="carousel-inner">
-          </div>
-          <a class="left carousel-control" href="#slideCarousel1" data-slide="prev">‹</a>
-          <a class="right carousel-control" href="#slideCarousel1" data-slide="next">›</a>
-        </div>
-        <!--/myCarousel-->
-      </div>
-      <!--/well-->
-    </div>
-  </div>
-
-  <div class="container" id="container2">
-    <div class="col-md-12">
-        <h1>
-          <img id="gamepic2" src="">
-          <iframe id="stream0_game2" src=""height="144"width="256"allowfullscreen="<allowfullscreen>">
-          </iframe>
-          <iframe id="stream1_game2" src=""height="144"width="256"allowfullscreen="<allowfullscreen>"></iframe>
-          <iframe id="stream2_game2" src=""height="144"width="256"allowfullscreen="<allowfullscreen>"></iframe>
-        </h1>
-      <div class="well">
-        <div id="slideCarousel2" class="carousel slide" data-interval="false">
-          <div class="carousel-inner">
-          </div>
-          <a class="left carousel-control" href="#slideCarousel2" data-slide="prev">‹</a>
-          <a class="right carousel-control" href="#slideCarousel2" data-slide="next">›</a>
-        </div>
-        <!--/myCarousel-->
-      </div>
-      <!--/well-->
-    </div>
-</main>
+</div>
+  <footer>
+  <p>©2021 Copyright GameWatch</p>
+  </footer>
 </body>
 </html>
