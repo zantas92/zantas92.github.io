@@ -26,7 +26,12 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
+    	function openInstructions() {
+    		window.open("instructions.html", "Instructions", 'resizable=0, width=720, height=700'); 
+    	}
+
       function postContentByGame(slideId) {
+      		document.getElementById("container-1").style.visibility = "hidden";
             var youtube = JSON.parse(sessionStorage.getItem('youtube')); 
             var twitch = JSON.parse(sessionStorage.getItem('twitch'));
             var streamer = twitch[slideId];
@@ -72,7 +77,7 @@
          
     $.ajax({
       method: "GET",
-      url: 'http://localhost:5000/content/game/' + document.getElementById("search_bar").value,
+      url: 'http://localhost:5000/api/v1/content/game/' + document.getElementById("search_bar").value,
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
@@ -103,10 +108,11 @@ function hideSlideContainers() {
          
     $.ajax({
       method: "GET",
-      url: 'http://localhost:5000/content/steam/' + document.getElementById('SteamID').value,
+      url: 'http://localhost:5000/api/v1/content/steam/' + document.getElementById('SteamID').value,
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
+    if(data.status === "success") {
     var youtube = data.Youtube;
     sessionStorage.setItem('youtube', JSON.stringify(youtube));
      var twitch = data.Twitch;
@@ -116,9 +122,13 @@ function hideSlideContainers() {
     for(var i = 0; i<youtube.length; i++) {
       document.getElementById("container"+i).style.visibility = "visible";
       postContentByGame(i);
-    }
-   
-
+    	}
+	}
+ 	else {
+   		alert(data.message);
+   		}
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    	alert("ERR_CONNECTION_REFUSED");
     });
   }
 }
@@ -128,7 +138,7 @@ function hideSlideContainers() {
          
     $.ajax({
       method: "GET",
-      url: 'http://localhost:5000/content',
+      url: 'http://localhost:5000/api/v1/content',
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
@@ -179,16 +189,17 @@ function hideSlideContainers() {
 
   <div class="starter-template text-center py-7 px-3">
     <img src="gamewatch.jfif">
-    <p class="lead">Skapat av Grupp 9</p>
     <h1>Enter Steam ID</h1>
 
   <form name ="Inputform" id="Inputform"> 
     <label for="IDform">Enter Steam ID: </label>
-    <input type="text" id="SteamID"><br><br>
-    <a class="btn btn-primary" id="SteamButton" role="button">Skicka</a>
+    <input type="text" id="SteamID">
+    <button type="button" class="btn btn-primary" id="SteamButton"><b>Send</b></button>
   </form>
   </div>
-
+  <div class="starter-template text-center py-7 px-3" id="container-1">
+  	<button type="button" class="btn btn-warning" onclick="openInstructions()"><b>How to find your steam Id</b></button>
+  </div>
   <div class="container" id="container0">
     <div class="col-md-12">
           <div class="twitchdiv">

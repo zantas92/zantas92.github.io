@@ -38,8 +38,14 @@ div.well {
 
 }
 
+
+
 .container {
 	margin-left: 15%;
+}
+
+#container-1 {
+	padding-top: 100px;
 }
 
 .instructionContainer {
@@ -90,9 +96,3 @@ img.YTLOGO {
 	right: 25%;
 }
 
-.instructionFooter {
-	text-align: center;
-	background-color: DarkOrange;
-	color: white;
-	height: 35px;
-}
