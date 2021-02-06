@@ -76,6 +76,7 @@
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
+    if(data.status === "success") {
     var youtube = data.Youtube;
     sessionStorage.setItem('youtube', JSON.stringify(youtube));
     var twitch = data.Twitch;
@@ -85,8 +86,11 @@
     for(var i = 0; i<1; i++) {
       document.getElementById("container"+i).style.visibility = "visible";
       postContentByGame(i);
-    }
-
+    	}
+	}
+	else {
+	alert(data.message);
+}
     }).fail(function (jqXHR, textStatus, errorThrown) {
     	alert("ERR_CONNECTION_REFUSED");
     });
@@ -139,6 +143,7 @@ function hideSlideContainers() {
       headers: {"Accept": "application/json"}
     })
     .done(function(data) {
+    if(data.status === "success") {
     var youtube = data.Youtube;
     sessionStorage.setItem('youtube', JSON.stringify(youtube));
      var twitch = data.Twitch;
@@ -149,6 +154,10 @@ function hideSlideContainers() {
       document.getElementById("container"+i).style.visibility = "visible";
       postContentByGame(i);
     }
+}
+else {
+	alert(data.message);
+}
     }).fail(function (jqXHR, textStatus, errorThrown) {
     	alert("ERR_CONNECTION_REFUSED");
     });
