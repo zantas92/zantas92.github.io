@@ -87,6 +87,8 @@
       postContentByGame(i);
     }
 
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    	alert("ERR_CONNECTION_REFUSED");
     });
   }
 }
@@ -147,6 +149,8 @@ function hideSlideContainers() {
       document.getElementById("container"+i).style.visibility = "visible";
       postContentByGame(i);
     }
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    	alert("ERR_CONNECTION_REFUSED");
     });
   }
 }
