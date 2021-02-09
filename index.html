@@ -21,9 +21,14 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
+
     	function openInstructions() {
     		window.open("instructions.html", "Instructions", 'resizable=0, width=720, height=700'); 
     	}
+
+      function hideLoading(){
+        $(".loader-wrapper").fadeOut("slow");
+      }
 
       function postContentByGame(slideId) {
       		document.getElementById("container-1").style.visibility = "hidden";
@@ -55,7 +60,7 @@
               }
             }
             console.log(rowIndex);
-             $('#slideCarousel'+slideId+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="426" height="240" src="https://www.youtube.com/embed/'+gameData[i].videoId+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');    
+             $('#slideCarousel'+slideId+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="426" height="240" src="https://www.youtube.com/embed/'+gameData[i].videoId+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="hideLoading()"></iframe></div>');
           }
 
 
@@ -68,7 +73,7 @@
       }
 
     function getContentByGameName(){
-        return function() {
+            return function() {
          
     $.ajax({
       method: "GET",
@@ -193,10 +198,12 @@ else {
   </div>
 </nav>
 
+
+
 <main class="containerMAIN">
 
   <div class="starter-template text-center py-7 px-3">
-    <img src="gamewatch.jfif">
+    <img src="gamewatch.jfif"> 
     <h1>Enter Steam ID</h1>
 
   <form name ="Inputform" id="Inputform"> 
@@ -209,6 +216,11 @@ else {
   	<button type="button" class="btn btn-warning" onclick="openInstructions()"><b>How to find your steam Id</b></button>
   </div>
   <div class="container" id="container0">
+    <div class="twitchdiv1" id="twitchID">
+            <div class="loader-wrapper" id="loaderID">
+                <span class="loader"><span class="loader-inner"></span>
+            </div>
+          </div>
     <div class="col-md-12">
           <div class="twitchdiv">
           <img id="gamepic0" src="">
