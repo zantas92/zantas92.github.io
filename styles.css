@@ -20,6 +20,26 @@ iframe {
 	padding: 10px;
 }
 
+iframe.twitchIF {
+	border: 10px solid;
+	border-image-slice: 1;
+	border-width: 5px;
+	padding:0;
+	border-image-source: linear-gradient(to bottom, #6344A2, #f1f1f1);
+}
+
+.divider {
+
+	position:relative;
+	margin-top: 90px;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 5px;
+	background-image: linear-gradient(to right, transparent, rgb(226, 110, 37), transparent);
+}
+
 img {
 	padding: 10px;
 }
