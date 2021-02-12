@@ -131,6 +131,7 @@ div.twitchdiv{
 	position: relative;
 	right: 25%;
 	height: auto;
+	background-image: linear-gradient(to bottom, #8a04e4 0, #f5f5f5 100%);
 }
 
 iframe.twitchIF {
