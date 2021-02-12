@@ -34,42 +34,38 @@
          $(".loader-wrapper").show();
       }
 
-      function postContentByGame(slideId) {
+      function postContentByGame(index) {
       		document.getElementById("container-1").style.visibility = "hidden";
-            var youtube = JSON.parse(sessionStorage.getItem('youtube')); 
-            var twitch = JSON.parse(sessionStorage.getItem('twitch'));
-            var streamer = twitch[slideId];
-            var game = youtube[slideId];
-            var key = Object.keys(game);
-            var gameName = key[0];
-            var gameData = game[gameName];
-            var keyTwitch = Object.keys(streamer);
-            var gameNameTwitch = key[0];
-            var streamerData = streamer[gameNameTwitch];
-            $('#gamepic'+slideId).attr('src', 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg');
+            var games = JSON.parse(sessionStorage.getItem('games'))
+            var game = games[index];
+            var gameName = game.game_name;
+            console.log(gameName);
+            var youtubeData = game.youtube;
+            var twitchData = game.twitch;
+            $('#gamepic'+index).attr('src', 'https://static-cdn.jtvnw.net/ttv-boxart/'+gameName+'-185x280.jpg');
 
             //Add content to slide
 
             //Youtube
             var rowIndex = -1;
-            $('#slideCarousel'+slideId+' .carousel-inner').empty();
-            for(var i = 0; i < gameData.length; i++) {
+            $('#slideCarousel'+index+' .carousel-inner').empty();
+            for(var i = 0; i < youtubeData.length; i++) {
             if(i % 4 === 0) {
               rowIndex++;
               if(i === 0) {
-                $('#slideCarousel'+slideId+' .carousel-inner').append('<div class="item active" id=row'+rowIndex+'><div class="row"></div></div>');
+                $('#slideCarousel'+index+' .carousel-inner').append('<div class="item active" id=row'+rowIndex+'><div class="row"></div></div>');
               }
               else {
-                $('#slideCarousel'+slideId+' .carousel-inner').append('<div class="item" id=row'+rowIndex+'><div class="row"></div></div>');
+                $('#slideCarousel'+index+' .carousel-inner').append('<div class="item" id=row'+rowIndex+'><div class="row"></div></div>');
               }
             }
-             $('#slideCarousel'+slideId+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="426" height="240" src="https://www.youtube.com/embed/'+gameData[i].videoId+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="hideLoading()" loading="eager"></iframe></div>');
+             $('#slideCarousel'+index+' .carousel-inner .item[id=row'+rowIndex+'] .row').append('<div class="col-sm-3"><iframe width="426" height="240" src="https://www.youtube.com/embed/'+youtubeData[i].video_id+'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="hideLoading()" loading="eager"></iframe></div>');
           }
 
 
           //Twitch
-          for(var i = 0; i < streamerData.length; i++){
-            $('#stream'+i+'_game'+slideId).attr('src', 'https://player.twitch.tv/?autoplay=false&channel='+streamerData[i].channel_name+'&parent=sveningvarstechsupport.com');
+          for(var i = 0; i < twitchData.length; i++){
+            $('#stream'+i+'_game'+index).attr('src', 'https://player.twitch.tv/?autoplay=false&channel='+twitchData[i].channel_name+'&parent=sveningvarstechsupport.com');
           }
 
       }
@@ -85,10 +81,8 @@
     .done(function(data) {
     if(data.status === "success") {
       showLoading();
-    var youtube = data.Youtube;
-    sessionStorage.setItem('youtube', JSON.stringify(youtube));
-    var twitch = data.Twitch;
-    sessionStorage.setItem('twitch', JSON.stringify(twitch));
+    var games = data.games;
+    sessionStorage.setItem('games', JSON.stringify(games));
     hideSlideContainers();
 
     for(var i = 0; i<1; i++) {
@@ -123,13 +117,11 @@ function hideSlideContainers() {
     .done(function(data) {
     if(data.status === "success") {
     showLoading();
-    var youtube = data.Youtube;
-    sessionStorage.setItem('youtube', JSON.stringify(youtube));
-     var twitch = data.Twitch;
-    sessionStorage.setItem('twitch', JSON.stringify(twitch));
-
+    var games = data.games;
+    sessionStorage.setItem('games', JSON.stringify(games));
+ 
     hideSlideContainers();
-    for(var i = 0; i<youtube.length; i++) {
+    for(var i = 0; i<games.length; i++) {
       document.getElementById("container"+i).style.visibility = "visible";
       postContentByGame(i);
     	}
@@ -154,13 +146,11 @@ function hideSlideContainers() {
     .done(function(data) {
       showLoading();
     if(data.status === "success") {
-    var youtube = data.Youtube;
-    sessionStorage.setItem('youtube', JSON.stringify(youtube));
-     var twitch = data.Twitch;
-    sessionStorage.setItem('twitch', JSON.stringify(twitch));
+    var games = data.games;
+    sessionStorage.setItem('games', JSON.stringify(games));
 
     hideSlideContainers();
-    for(var i = 0; i<youtube.length; i++) {
+    for(var i = 0; i<games.length; i++) {
       document.getElementById("container"+i).style.visibility = "visible";
       postContentByGame(i);
     }
