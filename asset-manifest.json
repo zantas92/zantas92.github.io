@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.eb0df9f9.css",
-    "main.js": "./static/js/main.cd177687.js",
-    "static/js/787.056ac915.chunk.js": "./static/js/787.056ac915.chunk.js",
-    "static/media/Zebra.jpg": "./static/media/Zebra.887b2f7e79aad161ee8d.jpg",
-    "static/media/Gorilla.jpg": "./static/media/Gorilla.e7aa3f760cf1f5663f5f.jpg",
-    "static/media/Elephant2.jpg": "./static/media/Elephant2.0461dfaae9b78e3e5e51.jpg",
-    "static/media/Hen.jpg": "./static/media/Hen.e37c421f751b084f8e4a.jpg",
-    "static/media/GreatWhiteShark.jpg": "./static/media/GreatWhiteShark.078b2506ff1aafa6f5a6.jpg",
-    "static/media/Panda2.jpg": "./static/media/Panda2.7ddf9f6ded3368bdf0cc.jpg",
-    "static/media/Kangaroo.jpg": "./static/media/Kangaroo.2db77f48294fdb7f8033.jpg",
-    "static/media/Toucan.jpg": "./static/media/Toucan.72c2b588b223c324c87b.jpg",
-    "static/media/Camel.jpg": "./static/media/Camel.cdc405e2ed101c7a25b8.jpg",
-    "index.html": "./index.html",
-    "main.eb0df9f9.css.map": "./static/css/main.eb0df9f9.css.map",
-    "main.cd177687.js.map": "./static/js/main.cd177687.js.map",
-    "787.056ac915.chunk.js.map": "./static/js/787.056ac915.chunk.js.map"
+    "main.css": "/static/css/main.eb0df9f9.css",
+    "main.js": "/static/js/main.2a07a7f5.js",
+    "static/js/787.056ac915.chunk.js": "/static/js/787.056ac915.chunk.js",
+    "static/media/Zebra.jpg": "/static/media/Zebra.887b2f7e79aad161ee8d.jpg",
+    "static/media/Gorilla.jpg": "/static/media/Gorilla.e7aa3f760cf1f5663f5f.jpg",
+    "static/media/Elephant2.jpg": "/static/media/Elephant2.0461dfaae9b78e3e5e51.jpg",
+    "static/media/Hen.jpg": "/static/media/Hen.e37c421f751b084f8e4a.jpg",
+    "static/media/GreatWhiteShark.jpg": "/static/media/GreatWhiteShark.078b2506ff1aafa6f5a6.jpg",
+    "static/media/Panda2.jpg": "/static/media/Panda2.7ddf9f6ded3368bdf0cc.jpg",
+    "static/media/Kangaroo.jpg": "/static/media/Kangaroo.2db77f48294fdb7f8033.jpg",
+    "static/media/Toucan.jpg": "/static/media/Toucan.72c2b588b223c324c87b.jpg",
+    "static/media/Camel.jpg": "/static/media/Camel.cdc405e2ed101c7a25b8.jpg",
+    "index.html": "/index.html",
+    "main.eb0df9f9.css.map": "/static/css/main.eb0df9f9.css.map",
+    "main.2a07a7f5.js.map": "/static/js/main.2a07a7f5.js.map",
+    "787.056ac915.chunk.js.map": "/static/js/787.056ac915.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eb0df9f9.css",
-    "static/js/main.cd177687.js"
+    "static/js/main.2a07a7f5.js"
   ]
 }
