@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.e1efac1b.css",
+    "main.css": "/static/css/main.239766bb.css",
     "main.js": "/static/js/main.274c67f0.js",
     "static/js/787.056ac915.chunk.js": "/static/js/787.056ac915.chunk.js",
     "static/media/GorillaOcclusion.png": "/static/media/GorillaOcclusion.ffbece9c9235827cc102.png",
@@ -18,12 +18,12 @@
     "static/media/Kangaroo.jpg": "/static/media/Kangaroo.2db77f48294fdb7f8033.jpg",
     "static/media/Camel.jpg": "/static/media/Camel.3261553607f141de00c3.jpg",
     "index.html": "/index.html",
-    "main.e1efac1b.css.map": "/static/css/main.e1efac1b.css.map",
+    "main.239766bb.css.map": "/static/css/main.239766bb.css.map",
     "main.274c67f0.js.map": "/static/js/main.274c67f0.js.map",
     "787.056ac915.chunk.js.map": "/static/js/787.056ac915.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1efac1b.css",
+    "static/css/main.239766bb.css",
     "static/js/main.274c67f0.js"
   ]
 }
