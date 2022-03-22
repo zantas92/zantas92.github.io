@@ -1,29 +1,35 @@
 {
   "files": {
-    "main.css": "/static/css/main.81de78a0.css",
-    "main.js": "/static/js/main.37a55902.js",
+    "main.css": "/static/css/main.4871b517.css",
+    "main.js": "/static/js/main.d0b69048.js",
     "static/js/787.056ac915.chunk.js": "/static/js/787.056ac915.chunk.js",
+    "static/media/CheetahLGC.png": "/static/media/CheetahLGC.8d7f6c0bb7e8e0840f99.png",
+    "static/media/CheetahOcclusion.png": "/static/media/CheetahOcclusion.0d8888106a25473ea140.png",
+    "static/media/KoalaOcclusion.png": "/static/media/KoalaOcclusion.7c9c6a43d415d987ff6f.png",
+    "static/media/KoalaLGC.png": "/static/media/KoalaLGC.bfc89e5574c8afbb7b31.png",
+    "static/media/MeerkatOcclusion.png": "/static/media/MeerkatOcclusion.65a86bb6d79199ae115d.png",
+    "static/media/MeerkatLGC.png": "/static/media/MeerkatLGC.0e86e9e6c69646fdb3a1.png",
+    "static/media/OstrichOcclusion.png": "/static/media/OstrichOcclusion.ab650899f0e07710e633.png",
+    "static/media/OstrichLGC.png": "/static/media/OstrichLGC.46d0973110369fd8fc14.png",
     "static/media/GorillaOcclusion.png": "/static/media/GorillaOcclusion.ffbece9c9235827cc102.png",
     "static/media/GorillaLGC.png": "/static/media/GorillaLGC.f0d05c22cd0f6e436748.png",
     "static/media/Gorilla.jpg": "/static/media/Gorilla.b9c8a4bb48c9a84ce2b6.jpg",
     "static/media/Elephant2.jpg": "/static/media/Elephant2.0461dfaae9b78e3e5e51.jpg",
     "static/media/Hen.jpg": "/static/media/Hen.e37c421f751b084f8e4a.jpg",
-    "static/media/GreatWhiteShark.jpg": "/static/media/GreatWhiteShark.078b2506ff1aafa6f5a6.jpg",
     "static/media/Panda2.jpg": "/static/media/Panda2.7ddf9f6ded3368bdf0cc.jpg",
     "static/media/ToucanLGC.png": "/static/media/ToucanLGC.6f402bbaaa1f77b8343d.png",
     "static/media/CamelOcclusion.png": "/static/media/CamelOcclusion.e17830169277200e3862.png",
     "static/media/ToucanOcclusion.png": "/static/media/ToucanOcclusion.ab67f2efbc62cbb164b5.png",
     "static/media/CamelLGC.png": "/static/media/CamelLGC.64cd74f7794a95a88d29.png",
     "static/media/Toucan.jpg": "/static/media/Toucan.d11d44e99717d04e3c6d.jpg",
-    "static/media/Kangaroo.jpg": "/static/media/Kangaroo.2db77f48294fdb7f8033.jpg",
     "static/media/Camel.jpg": "/static/media/Camel.3261553607f141de00c3.jpg",
     "index.html": "/index.html",
-    "main.81de78a0.css.map": "/static/css/main.81de78a0.css.map",
-    "main.37a55902.js.map": "/static/js/main.37a55902.js.map",
+    "main.4871b517.css.map": "/static/css/main.4871b517.css.map",
+    "main.d0b69048.js.map": "/static/js/main.d0b69048.js.map",
     "787.056ac915.chunk.js.map": "/static/js/787.056ac915.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.81de78a0.css",
-    "static/js/main.37a55902.js"
+    "static/css/main.4871b517.css",
+    "static/js/main.d0b69048.js"
   ]
 }
